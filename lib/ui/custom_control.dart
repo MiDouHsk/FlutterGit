@@ -11,16 +11,82 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(15),
+      padding: const EdgeInsets.all(25),
+      margin: const EdgeInsets.symmetric(horizontal: 25.0),
       decoration: BoxDecoration(
-        color: Theme.of(context).primaryColor,
-        borderRadius: BorderRadius.circular(12),
+        color: Colors.black,
+        borderRadius: BorderRadius.circular(8),
       ),
-      child: Center(
+      child: const Center(
         child: Text(
-          textButton,
-          style: const TextStyle(
-              color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+          "Sign In",
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ButtonRegister extends StatelessWidget {
+  const ButtonRegister({
+    super.key,
+    required this.textButton,
+  });
+
+  final String textButton;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(25),
+      margin: const EdgeInsets.symmetric(horizontal: 25.0),
+      decoration: BoxDecoration(
+        color: Colors.black,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: const Center(
+        child: Text(
+          "register",
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ButtonForgot extends StatelessWidget {
+  const ButtonForgot({
+    super.key,
+    required this.textButton,
+  });
+
+  final String textButton;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(25),
+      margin: const EdgeInsets.symmetric(horizontal: 25.0),
+      decoration: BoxDecoration(
+        color: Colors.black,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: const Center(
+        child: Text(
+          "Send",
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+          ),
         ),
       ),
     );
@@ -43,17 +109,20 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15),
-      decoration: BoxDecoration(
-          color: Colors.grey[200],
-          border: Border.all(color: Colors.white),
-          borderRadius: BorderRadius.circular(15)),
       child: TextField(
-          obscureText: obscureText,
-          controller: _textController,
-          decoration: InputDecoration(
+        obscureText: obscureText,
+        decoration: InputDecoration(
+            enabledBorder: const OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.grey.shade400),
+            ),
+            fillColor: Colors.grey.shade200,
+            filled: true,
             hintText: hintText,
-            border: InputBorder.none,
-          )),
+            hintStyle: TextStyle(color: Colors.grey[500])),
+      ),
     );
   }
 }
@@ -66,9 +135,9 @@ class AppLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Icon(
-      Icons.account_tree,
+      Icons.lock,
       size: 100,
-      color: Colors.deepPurple[300],
+      color: Colors.black,
     );
   }
 }
@@ -86,7 +155,7 @@ class CustomSpinner extends StatelessWidget {
     return Container(
       height: size.height,
       width: size.width,
-      color: Colors.deepPurple.withOpacity(0.5),
+      color: Colors.grey.shade700.withOpacity(0.5),
       child: const Center(
         child: Image(
           width: 50,

@@ -73,7 +73,7 @@ class PageForgot extends StatelessWidget {
                             height: 40,
                           ),
                           const Text(
-                              "Dien Email vao de xac thuc qua trinh Lay lai mat khau!"),
+                              "Enter your email to retrieve your password!"),
                           const SizedBox(
                             height: 10,
                           ),
@@ -94,7 +94,7 @@ class PageForgot extends StatelessWidget {
                               final email = _emailController.text.trim();
                               viewmodel.forgotPassword(email);
                             },
-                            child: CustomButton(textButton: "Gui Yeu Cau"),
+                            child: ButtonForgot(textButton: "Gui Yeu Cau"),
                           ),
                           const SizedBox(
                             height: 10,

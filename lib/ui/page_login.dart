@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/providers/square_title.dart';
 import 'package:flutter_application_2/ui/AppConstant.dart';
 import 'package:flutter_application_2/ui/page_forgot.dart';
 import 'package:flutter_application_2/ui/page_register.dart';
@@ -49,35 +50,61 @@ class PageLogin extends StatelessWidget {
                         height: 30,
                       ),
                       const Text(
-                        "Hello",
+                        "Wellcome back",
                         style: TextStyle(
-                          fontSize: 40,
+                          fontSize: 24,
                           fontWeight: FontWeight.bold,
+                          color: Colors.grey,
                         ),
                       ),
                       const Text(
-                        "I miss you!",
-                        style: TextStyle(fontSize: 25),
+                        "you've been missed!",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.grey,
+                        ),
                       ),
                       const SizedBox(
-                        height: 30,
+                        height: 25,
                       ),
+                      //user name textfield
                       CustomTextField(
                         hintText: "Username",
                         textController: _emailController,
                         obscureText: false,
                       ),
                       const SizedBox(
-                        height: 15,
+                        height: 10,
                       ),
+                      //password textfield
                       CustomTextField(
                         hintText: "Password",
                         textController: _passwordController,
                         obscureText: true,
                       ),
                       const SizedBox(
-                        height: 30,
+                        height: 10,
                       ),
+                      // forgot password
+                      GestureDetector(
+                        onTap: () => Navigator.of(context)
+                            .popAndPushNamed(PageForgot.routename),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                "forgot password?",
+                                style: AppConstant.textlink,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ), // error messege
                       viewmodel.status == 2
                           ? Text(
                               viewmodel.errorMessage,
@@ -85,6 +112,7 @@ class PageLogin extends StatelessWidget {
                             )
                           : const Text(" "),
                       const SizedBox(height: 10),
+                      // button login
                       GestureDetector(
                         onTap: () {
                           String username = _emailController.text.trim();
@@ -96,20 +124,72 @@ class PageLogin extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 50,
                       ),
+                      // or continue with
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Divider(
+                                thickness: .5,
+                                color: Colors.grey[400],
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 10.0),
+                              child: Text(
+                                "or continue with",
+                                style: TextStyle(
+                                  color: Colors.grey.shade700,
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: Divider(
+                                thickness: .5,
+                                color: Colors.grey[400],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 25),
+                      //  google + apple sign in buttons.
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          //google button
+                          SquareTitle(imagePath: 'assets/images/google.png'),
+                          SizedBox(width: 25),
+                          // apple button
+                          SquareTitle(imagePath: 'assets/images/apple.png'),
+                        ],
+                      ),
+
+                      const SizedBox(height: 25),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text("Don't have Account?"),
+                          const Text(
+                            "Not a member?",
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 4,
+                          ),
                           GestureDetector(
                             onTap: () => Navigator.of(context)
                                 .popAndPushNamed(PageRegister.routename),
-                            child: Text(
-                              "Register",
+                            child: const Text(
+                              "register now",
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.deepPurple[300]),
+                                  color: Colors.blueGrey),
                             ),
                           )
                         ],
@@ -117,14 +197,6 @@ class PageLogin extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      GestureDetector(
-                        onTap: () => Navigator.of(context)
-                            .popAndPushNamed(PageForgot.routename),
-                        child: Text(
-                          ">> forgot password <<",
-                          style: AppConstant.textlink,
-                        ),
-                      )
                     ],
                   ),
                 ),

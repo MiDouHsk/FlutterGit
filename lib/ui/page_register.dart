@@ -84,11 +84,11 @@ class PageRegister extends StatelessWidget {
                                 height: 10,
                               ),
                               Text(
-                                "thêm tên đi nào",
+                                "Create an account,",
                                 style: AppConstant.textfancyheader2,
                               ),
                               Text(
-                                "mãi bên nhau bạn nhé!",
+                                " Open the door to your world.",
                                 style: AppConstant.textfancyheader2,
                               ),
                               SizedBox(
@@ -157,7 +157,8 @@ class PageRegister extends StatelessWidget {
                                     viewmodel.register(
                                         email, username, pass, cpass);
                                   },
-                                  child: CustomButton(textButton: 'Register')),
+                                  child:
+                                      ButtonRegister(textButton: 'Register')),
                               const SizedBox(
                                 height: 10,
                               ),
